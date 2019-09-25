@@ -3,25 +3,60 @@
 <head>
     <meta charset="UTF-8">
     <title>Document</title>
-
-    <script type="text/javacript" src="https://cdnjs.cloudfare.com/ajax/libs/jquery.mini.js"></script>
-
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
 </head>
 <body>
 
-    <p id="result"></p>
-
-    
-    <div class="crystals">
-
+    <div class="heading">
+        <p>Welcome to Crystal Collector internet traveler!</p>
     </div>
 
-    <p id="previous"></p>
+<div class="container1">
+    <div class="instructions">
+           
+        <p> Win and collect a prize! Lose, and walk away with nothing... 
+           <li>You will be given a magic random number at the start of the game.</li> 
+           <li>There are four mystical crystals below, by clicking on a crystal you
+           will add a specific amount of points to your total score.</li> 
+           <li>To win, you must match your total score with the magic random number.</li>
+           <br> 
+           If you go over, you lose!  
+           Chose wisely traveler, & good luck!</P>
+                
+    </div>
+</div>
+            
 
-    <p id="win"></p>
-    <p id="lost"></p>
+<div class="container2">
 
-    <script type="text/javacript" src="assets/js/app.js"></script>
+    <div class="scoreboard">
+        <div class="row">
+            <div class="col-sm">
+    <p id="result">Score: 0</p>
+	<p id="target">Target: 0</p>
+	<p id="previous">Previous: 0</p>
+    <p id="wins">Wins: 0</p>
+    <p id="losses">Losses: 0</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<br>
+
+    <div class="crystals">
+                   
+        <img id="c1" src="assets/images/DIAMOND.jpg"
+            style= "width: 200px; height:200px;">
+        <img id="c2" src="assets/images/EMERALD.jpg"
+            style= "width: 200px; height:200px;">
+        <img id="c3" src="assets/images/ORANGE.png"
+            style= "width: 200px; height:200px;">
+        <img id="c4" src="assets/images/RUBY.jpg"
+            style= "width: 200px; height:200px;">
+    </div>
+
+    <script type="text/javascript" src="assets/javascript/game.js"></script>
 </body>
 </html>

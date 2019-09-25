@@ -1,26 +1,66 @@
 
+body {
+	background-image: url("../images/BACKGROUND.png");
+	color: white;
+}
 
-.crystals{
+.heading {
+    background-color: pink;
+    font-size: 30px;
+    text-align: center;
+    width: 500px;
+    height: 70px;
+}
+
+.container1 {
+    background-color: pink;
+    width: 450px;
+}
+
+
+.container2 {
+    width: 300px;
+    background-color: pink;
+}
+
+.scoreboard {
+    font-size: 30px;
+    overflow: auto;
+}
+
+#result, #target, #previous, #wins, #losses {
+    text-align: center;
+}
+
+.instructions {
+    font-size: 25px;
+}
+
+.crystals {
+    float: left;
     display: flex;
     justify-content: center;
-    border:1px solid red;
     align-items: center
+
 }
 
-.crystal{
-    border:1px solid green;
+.crystal {
+    border: 1px solid green;
     height: 200px;
+	width: 200px;
+	border-radius: 4px;
+	box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
+	transition: box-shadow 1s, transform 2s;
 }
 
-.crystal:hover{
-    box-shadow: 15px 15px 15px rgba(red, green, blue, alpha);
+.crystal:hover {
+    box-shadow: 15px 15px 15px rgba(0, 0, 0, 0.5);
     transform: translate(5px, 80px);
     cursor: pointer;
     transition: box-shadow 1s, transform 2s;
-
-
 }
 
-img{
-    width:50px
+img {
+    width: 100px;
+	cursor: pointer;
 }

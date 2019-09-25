@@ -1,100 +1,57 @@
-
-var random_result;
-var lost = 0;
-var win = 0;
-var previous = 0;
-
-
-var resetAndStart = function () {
-
-    $(".crystals").empty();
-
-    var images = [
-        <img src="images/DIAMOND.jpg"></img>
-        <img src="images/EMERALD.jpg"></img>
-        <img src="images/RUBY.jpg"></img>
-
-    ]
-
-    random_result = Math.floor(Math.random() * 69 ) + 30;
-
-    $("#result").html('Random Result: ' + random_result);
-
-    for(var i = 0; i < 4; i++){
-
-        var random = Math.floor(Math.random() * 11) + 1;
-
-        var crystal = $("<div>");
-            crtstal.attr({
-                "class": 'crystal',
-                "data-random": random
-            });
-            crystal.css({
-                "background-image":"url('" + images[i] + "')",
-                "background-size":"cover"
-            
-            });
-
-
-        $(".crystals").appened(crystal);
-
-
-        }
-
-        $("#previous").html("Total Score: " + previous);
-
-    }
-
-resetAndStart();
-
-
-$(document).on('click', ".crystal", function () {
-
-    var num = parseInt($(this).attr('data-random'));
-
-    previous += num;
-
-
-    $("#previous").html("Total Score: " + previous);
-
-    
-}
-
-resetAndStart();
-
-$(document).on('click', ".crystal", function () {
-
-	var num = parseInt($(this).attr('data-random'));
-
-	previous += num;
-
-
-	$("#previous").html("Total score: " + previous);
-
-	console.log(previous);
-
-	if(previous > random_result){
-
-		lost++;
-
-		$("#lost").html("You lost: " + lost);
-
-		previous = 0;
-
-		resetAndStart();
-
-	} 
-	else if(previous === random_result){
-
-		win++;
-
-		$("#win").html("You win: " + win);
-
-		previous = 0;
-
-		resetAndStart();
-
+$(document).ready(function(){
+	var crystals = [];
+	var score = 0;
+	var target = 0;
+	var wins = 0;
+	var losses = 0;
+	var previous = 0;
+	function init(){
+		// generate crystal values
+		for(var i = 0; i < 4; i++){
+			crystals[i] = Math.floor((Math.random()*5)+1);
+		}
+		// generate number to reach
+		target = Math.floor((Math.random()*100)+1);
+		$("#target").html("Target: " + target);
+		score = 0;
+		$("#result").html("Score: 0");
+		
+		// update wins/losses
+		$("#wins").html("Wins: " + wins);
+		$("#losses").html("Losses: " + losses);
+		$("#previous").html("Previous: " + previous);
 	}
-
-}});
-
+	init();
+	
+	function checkScore(){
+		if(score === target){
+			alert();
+			previous = target;
+			wins++;
+			init();
+		}else if(score > target){
+			alert();
+			previous = target;
+			losses++;
+			init();
+		}
+	}
+	
+	function addScore(i){
+		score += crystals[i];
+		$("#result").html("Score: " + score);
+		checkScore();
+	}
+	$("#c1").on("click", function(){
+		addScore(0);
+	});
+	$("#c2").on("click", function(){
+		addScore(1);
+	});
+	$("#c3").on("click", function(){
+		addScore(2);
+	});
+	$("#c4").on("click", function(){
+		addScore(3);
+	});
+});
